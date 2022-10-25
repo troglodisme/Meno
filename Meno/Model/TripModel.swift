@@ -7,24 +7,27 @@
 
 import Foundation
 
-struct Trip {
+enum bagSize {
+    case small, medium, large
+}
 
+//enum colorTag {
+//    case white, orange, blue, green, red
+//}
+
+struct Trip: Identifiable {
+
+    let id = UUID()
+    
     var destination: String
     var departureDate: Date
     var returnDate: Date
-//    var colorTag: [String]
-    var bagSize: bagSize? 
-
+//    var colorTag: colorTag
+    var bagSize: bagSize
+    
 //    var packignList: [allItems]
 }
 
-enum bagSize: Int {
-
-    case small
-    case medium
-    case large
-
-}
 
 //Class store o un file da qualche parte?
 //class ItemStore {
@@ -39,10 +42,7 @@ enum bagSize: Int {
 //
 //    func add(newItem: Item) {
 //        allItems.append(newItem)
-//    }
+//    }s
 //}
-
-
-
 
 

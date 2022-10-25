@@ -5,19 +5,30 @@
 //  Created by Giulio Ammendola on 24/10/2022.
 //
 
+
+
 import SwiftUI
 
 struct BagSelection: View {
     
+//    @Binding var destination: String
+    
     @State private var chosenBag: Int = 0
     @State private var isItemListOpen: Bool = false
-
+    
+//    @ObservedObject var trip: MyTrip
+    
+    
     var body: some View {
         
         VStack{
             
+            
             //Here we need to implement a data structure to store/reuse the values entered by the user
             VStack{
+                
+//                Text(trip.city)
+                
                 Text("You are going to [destination]")
                 Text("On: [date]")
                 Text("For: [duration] nights")
@@ -83,6 +94,7 @@ struct BagSelection: View {
         
     }
 }
+
 
 struct BagSelection_Previews: PreviewProvider {
     static var previews: some View {

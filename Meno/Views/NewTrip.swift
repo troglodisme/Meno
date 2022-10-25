@@ -12,7 +12,6 @@ struct NewTrip: View {
     @State private var destination: String = ""
     @State private var departureDate = Date()
     @State private var returnDate = Date()
-//    @State private var numberOfNights = 3
     
     var body: some View {
         
@@ -48,6 +47,8 @@ struct NewTrip: View {
                     displayedComponents: [.date]
                 )
                 .datePickerStyle(.compact)
+                .accentColor(.pink)
+
             }
             .padding()
             
@@ -61,6 +62,7 @@ struct NewTrip: View {
                     displayedComponents: [.date]
                 )
                 .datePickerStyle(.compact)
+                
             }
             .padding()
             
