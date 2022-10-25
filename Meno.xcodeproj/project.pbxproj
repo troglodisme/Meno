@@ -10,7 +10,9 @@
 		4E0639FA2907C0F900448DEB /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0639F92907C0F900448DEB /* TripModel.swift */; };
 		4E0639FC2907CE7900448DEB /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0639FB2907CE7900448DEB /* Data.swift */; };
 		4E063A00290828EF00448DEB /* TripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0639FF290828EF00448DEB /* TripViewModel.swift */; };
-		4E063A032908327600448DEB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E063A022908327600448DEB /* DetailView.swift */; };
+		4E063A032908327600448DEB /* DetailTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E063A022908327600448DEB /* DetailTripView.swift */; };
+		4E0A0ADF290857670086403E /* TripRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0A0ADE290857670086403E /* TripRowView.swift */; };
+		4E0A0AE129086E1B0086403E /* TripRecapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0A0AE029086E1B0086403E /* TripRecapView.swift */; };
 		4E3A148B290724EE0088A903 /* MenoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A148A290724EE0088A903 /* MenoApp.swift */; };
 		4E3A148D290724EE0088A903 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A148C290724EE0088A903 /* ContentView.swift */; };
 		4E3A148F290724F00088A903 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E3A148E290724F00088A903 /* Assets.xcassets */; };
@@ -24,7 +26,9 @@
 		4E0639F92907C0F900448DEB /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
 		4E0639FB2907CE7900448DEB /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		4E0639FF290828EF00448DEB /* TripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewModel.swift; sourceTree = "<group>"; };
-		4E063A022908327600448DEB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		4E063A022908327600448DEB /* DetailTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTripView.swift; sourceTree = "<group>"; };
+		4E0A0ADE290857670086403E /* TripRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRowView.swift; sourceTree = "<group>"; };
+		4E0A0AE029086E1B0086403E /* TripRecapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRecapView.swift; sourceTree = "<group>"; };
 		4E3A1487290724EE0088A903 /* Meno.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meno.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E3A148A290724EE0088A903 /* MenoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenoApp.swift; sourceTree = "<group>"; };
 		4E3A148C290724EE0088A903 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,10 +63,12 @@
 			isa = PBXGroup;
 			children = (
 				4E3A148C290724EE0088A903 /* ContentView.swift */,
+				4E0A0ADE290857670086403E /* TripRowView.swift */,
+				4E063A022908327600448DEB /* DetailTripView.swift */,
 				4E3A14982907259A0088A903 /* NewTrip.swift */,
+				4E0A0AE029086E1B0086403E /* TripRecapView.swift */,
 				4E3A149A29073EB60088A903 /* BagSelection.swift */,
 				4E3A149C290744240088A903 /* ItemsList.swift */,
-				4E063A022908327600448DEB /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,11 +189,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E0639FC2907CE7900448DEB /* Data.swift in Sources */,
-				4E063A032908327600448DEB /* DetailView.swift in Sources */,
+				4E063A032908327600448DEB /* DetailTripView.swift in Sources */,
 				4E063A00290828EF00448DEB /* TripViewModel.swift in Sources */,
+				4E0A0ADF290857670086403E /* TripRowView.swift in Sources */,
 				4E3A149D290744240088A903 /* ItemsList.swift in Sources */,
 				4E3A148D290724EE0088A903 /* ContentView.swift in Sources */,
 				4E3A149B29073EB60088A903 /* BagSelection.swift in Sources */,
+				4E0A0AE129086E1B0086403E /* TripRecapView.swift in Sources */,
 				4E0639FA2907C0F900448DEB /* TripModel.swift in Sources */,
 				4E3A148B290724EE0088A903 /* MenoApp.swift in Sources */,
 				4E3A14992907259A0088A903 /* NewTrip.swift in Sources */,

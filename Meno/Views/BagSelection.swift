@@ -11,11 +11,9 @@ import SwiftUI
 
 struct BagSelection: View {
     
-//    @Binding var destination: String
-    
-    @State private var chosenBag: Int = 0
-    @State private var isItemListOpen: Bool = false
-    
+
+@ObservedObject var tripViewModel = TripViewModel() //instance of TripviewModel model
+
 //    @ObservedObject var trip: MyTrip
     
     
@@ -28,8 +26,8 @@ struct BagSelection: View {
             VStack{
                 
 //                Text(trip.city)
-                
-                Text("You are going to [destination]")
+
+                Text("You are going to \(tripViewModel.trips[3].destination)")
                 Text("On: [date]")
                 Text("For: [duration] nights")
             }
@@ -101,3 +99,4 @@ struct BagSelection_Previews: PreviewProvider {
         BagSelection()
     }
 }
+    

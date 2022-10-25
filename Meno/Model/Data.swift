@@ -6,7 +6,7 @@
 
 import Foundation
 
-var trip = Trip (destination: "Florence",
+var trip0 = Trip (destination: "Florence",
                   departureDate: Date.now,
                   returnDate: Date.now,
                   bagSize: bagSize.small
@@ -23,3 +23,5 @@ var trip2 = Trip (destination: "New York",
                   returnDate: Date.now,
                   bagSize: bagSize.medium
 )
+
+var trip3 = Trip (destination: "", departureDate: Date.now, returnDate: Date.now, bagSize: bagSize.medium)

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DetailView: View {
+struct TripDetailView: View {
 
     @Environment(\.dismiss) var dismiss
     
@@ -22,6 +22,7 @@ struct DetailView: View {
             Text(trip.destination)
                 .font(.largeTitle)
                 .padding(.bottom)
+            
             Text(trip.destination)
                 .font(.body)
                 .padding()
@@ -29,7 +30,7 @@ struct DetailView: View {
             Button {
                 dismiss()
             } label: {
-                Text("Close ME!!!")
+                Text("Close")
                     .font(.title)
             }
 

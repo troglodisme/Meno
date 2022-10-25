@@ -9,16 +9,22 @@ import SwiftUI
 
 struct NewTrip: View {
     
-    @State private var destination: String = ""
-    @State private var departureDate = Date()
-    @State private var returnDate = Date()
+    @ObservedObject var tripViewModel = TripViewModel() //instance of TripviewModel model
+    
+    @State var destinationValue: String = ""
+    @State var departureDateValue =  Date()
+    @State var returnDateValue = Date()
+    //    @State var bagSizeValue:
+    
+    @State private var selectedBagSize: bagSize = .medium //standard value for picker
+    
     
     var body: some View {
         
         VStack{
             
-            //Destination
             VStack(alignment: .leading) {
+                
                 Text("Where to?")
                     .font(.callout)
                     .bold()
@@ -26,89 +32,88 @@ struct NewTrip: View {
                 
                 TextField(
                     "Destination",
-                    text: $destination
+                    text: $destinationValue //how can I write to the object inside TripViewModel?
                 )
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-
-            }
-            .padding()
-            
-            
-            //Departure Date (it would be nice to have a draggable calendar to select duration
-            VStack(alignment: .leading) {
+                
+                
+                
+                //Departure Date (it would be nice to have a draggable calendar to select duration
                 Text("When's your trip?")
-                        .font(.callout)
-                        .bold()
-                        .foregroundColor(.blue)
+                    .font(.callout)
+                    .bold()
+                    .foregroundColor(.blue)
                 
                 DatePicker(
                     "Departure",
-                    selection: $departureDate,
+                    selection: $departureDateValue,
                     displayedComponents: [.date]
                 )
                 .datePickerStyle(.compact)
                 .accentColor(.pink)
-
-            }
-            .padding()
-            
-            
-            //Return date
-            VStack(alignment: .leading) {
+                
+                
                 
                 DatePicker(
                     "Return",
-                    selection: $returnDate,
+                    selection: $returnDateValue,
                     displayedComponents: [.date]
                 )
                 .datePickerStyle(.compact)
                 
+                
+                Text("Bag Size")
+                    .font(.callout)
+                    .bold()
+                    .foregroundColor(.blue)
+                
+                
+                Picker("Bag Size", selection: $selectedBagSize) {
+                    
+                    Text("Small").tag(bagSize.small)
+                    Text("Medium").tag(bagSize.medium)
+                    Text("Large").tag(bagSize.large)
+                    
+                }
+                .pickerStyle(.segmented)
+                
             }
             .padding()
             
             
+            
             Button {
-                createNewTrip()
-
+                addNewTrip()
             } label: {
-                Text("Create New Trip Test Button")
+                Text("Print Monitor Test")
             }
-
-//      Or we could have a stepper instead of return date
-            
-//            VStack(alignment: .leading) {
-//                HStack{
-//                    Text("Nights: \(numberOfNights)")
-//                    Stepper("", value: $numberOfNights, in: 0...30)
-//                }
-//            }
-//            .padding()
-            
             
             VStack {
                 
                 NavigationLink {
-                    BagSelection()
+                    TripRecapView()
                 } label: {
                     Text("Next")
                 }
-
+                
             }
             .padding()
-  
+            
         }
         .padding()
         .navigationTitle("Add New Trip")
         
     }
     
-    func createNewTrip() {
+    
+    func addNewTrip() {
         
-        //
-        print($destination)
-        print($departureDate)
+        print("You are going to \(destinationValue), \(departureDateValue), \(returnDateValue)")
+        
+        //create a new object Trip and append to view model
     }
-
+    
+    
 }
 
 

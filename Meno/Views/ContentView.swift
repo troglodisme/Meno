@@ -10,39 +10,42 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var tripVM = TripViewModel()
-    @State var selectedTrip: Trip? = nil //what's this doing?
-    @State var isVisible = false
+    @ObservedObject var tripViewModel = TripViewModel() //instance of TripviewModel model
+    @State var selectedTrip: Trip? = nil //selects specific trip on tap
+    @State var isVisible = false //displays trip details on a sheet view
     
     var body: some View {
-        
-//load mock date example
-//        let florence: Trip = trip1
-//        let newOrleans: Trip = trip2
-
         
         NavigationView {
             
             VStack{
                 
+                //Display a list of all existing trips
+                
                 List {
-                    ForEach (tripVM.trips) { trip in
-                                                
+                
+                    //TO DO: Implement two sections
+                    // 1) Upcoming (if date is newer than today)
+                    // 2) Archive
+                    
+                    ForEach (tripViewModel.trips) { trip in
+                            
+                        //Show a button for each trip
                         Button {
                             self.selectedTrip = trip
                             self.isVisible.toggle()
                         } label: {
-                            TripRowView(trip: trip)
+                            TripRowView(trip: trip)  //trip? trip?
                         }
                     }
-                    .onDelete(perform: tripVM.remove)
+                    .onDelete(perform: tripViewModel.remove)
 
                 }
                 .sheet(item: $selectedTrip) { trip in
-                    DetailView(trip: trip)
+                    TripDetailView(trip: trip)
                 }
-                
-                
+                                
+                //TO DO: Change navigation method to something better
                 NavigationLink {
                     NewTrip()
                 } label: {
@@ -50,32 +53,13 @@ struct ContentView: View {
                 }
                 
             }
-
             .navigationTitle("Trips")
         }
     }
 }
 
 
-struct TripRowView: View {
-    
-    var trip: Trip
-    
-    var body: some View {
-        HStack{
-//            Image("Domenico")
-//                .resizable()
-//                .frame(width: 50, height: 50)
-            VStack (alignment: .leading){
-                Text(trip.destination)
-                    .font(.headline)
-                Text(trip.departureDate.formatted())
-                    .font(.subheadline)
-            }
-            .padding()
-        }
-    }
-}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum bagSize {
+enum bagSize : String, CaseIterable {
     case small, medium, large
 }
 
