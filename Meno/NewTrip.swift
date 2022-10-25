@@ -10,15 +10,17 @@ import SwiftUI
 struct NewTrip: View {
     
     @State private var destination: String = ""
-    @State private var date = Date()
-    @State private var numberOfNights = 3
+    @State private var departureDate = Date()
+    @State private var returnDate = Date()
+//    @State private var numberOfNights = 3
     
     var body: some View {
         
         VStack{
             
             //Destination
-            VStack(alignment: .leading) {               Text("Where to?")
+            VStack(alignment: .leading) {
+                Text("Where to?")
                     .font(.callout)
                     .bold()
                     .foregroundColor(.blue)
@@ -42,7 +44,7 @@ struct NewTrip: View {
                 
                 DatePicker(
                     "Departure",
-                    selection: $date,
+                    selection: $departureDate,
                     displayedComponents: [.date]
                 )
                 .datePickerStyle(.compact)
@@ -55,7 +57,7 @@ struct NewTrip: View {
                 
                 DatePicker(
                     "Return",
-                    selection: $date,
+                    selection: $returnDate,
                     displayedComponents: [.date]
                 )
                 .datePickerStyle(.compact)
@@ -63,6 +65,13 @@ struct NewTrip: View {
             .padding()
             
             
+            Button {
+                createNewTrip()
+
+            } label: {
+                Text("Create New Trip Test Button")
+            }
+
 //      Or we could have a stepper instead of return date
             
 //            VStack(alignment: .leading) {
@@ -81,22 +90,21 @@ struct NewTrip: View {
                 } label: {
                     Text("Next")
                 }
+
             }
             .padding()
-
-        
-
-            
+  
         }
         .padding()
         .navigationTitle("Add New Trip")
-//        .toolbar {
-//            Button("Next") {
-//                //action
-//            }
-//        }
-
+        
+    }
     
+    func createNewTrip() {
+        
+        //
+        print($destination)
+        print($departureDate)
     }
 
 }

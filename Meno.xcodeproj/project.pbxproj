@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0639FA2907C0F900448DEB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0639F92907C0F900448DEB /* Model.swift */; };
+		4E0639FC2907CE7900448DEB /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0639FB2907CE7900448DEB /* Data.swift */; };
 		4E3A148B290724EE0088A903 /* MenoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A148A290724EE0088A903 /* MenoApp.swift */; };
 		4E3A148D290724EE0088A903 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A148C290724EE0088A903 /* ContentView.swift */; };
 		4E3A148F290724F00088A903 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E3A148E290724F00088A903 /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E0639F92907C0F900448DEB /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		4E0639FB2907CE7900448DEB /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		4E3A1487290724EE0088A903 /* Meno.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meno.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E3A148A290724EE0088A903 /* MenoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenoApp.swift; sourceTree = "<group>"; };
 		4E3A148C290724EE0088A903 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 				4E3A14982907259A0088A903 /* NewTrip.swift */,
 				4E3A149A29073EB60088A903 /* BagSelection.swift */,
 				4E3A149C290744240088A903 /* ItemsList.swift */,
+				4E0639F92907C0F900448DEB /* Model.swift */,
+				4E0639FB2907CE7900448DEB /* Data.swift */,
 				4E3A148E290724F00088A903 /* Assets.xcassets */,
 				4E3A1490290724F00088A903 /* Preview Content */,
 			);
@@ -146,9 +152,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E0639FC2907CE7900448DEB /* Data.swift in Sources */,
 				4E3A149D290744240088A903 /* ItemsList.swift in Sources */,
 				4E3A148D290724EE0088A903 /* ContentView.swift in Sources */,
 				4E3A149B29073EB60088A903 /* BagSelection.swift in Sources */,
+				4E0639FA2907C0F900448DEB /* Model.swift in Sources */,
 				4E3A148B290724EE0088A903 /* MenoApp.swift in Sources */,
 				4E3A14992907259A0088A903 /* NewTrip.swift in Sources */,
 			);
