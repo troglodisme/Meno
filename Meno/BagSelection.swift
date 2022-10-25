@@ -10,7 +10,8 @@ import SwiftUI
 struct BagSelection: View {
     
     @State private var chosenBag: Int = 0
-    
+    @State private var isItemListOpen: Bool = false
+
     var body: some View {
         
         VStack{
@@ -60,8 +61,7 @@ struct BagSelection: View {
                 }
             }
             
-                        
-
+            
             Button {
                 print("select bag 3")
                 
