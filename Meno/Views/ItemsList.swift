@@ -41,7 +41,11 @@ struct ItemsList: View {
                 }
  
             }
+
         }
+        .navigationTitle("Your Items")
+
+
     }
 }
 

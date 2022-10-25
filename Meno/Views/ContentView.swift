@@ -8,6 +8,8 @@
 import SwiftUI
 
 
+// How to use user input from New Trip into next view (it works as a string, but we need to create an object as part of the Trips struct.
+
 struct ContentView: View {
     
     @ObservedObject var tripViewModel = TripViewModel() //instance of TripviewModel model

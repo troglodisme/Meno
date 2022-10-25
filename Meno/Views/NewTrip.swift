@@ -8,114 +8,127 @@
 import SwiftUI
 
 struct NewTrip: View {
-    
-    @ObservedObject var tripViewModel = TripViewModel() //instance of TripviewModel model
-    
-    @State var destinationValue: String = ""
-    @State var departureDateValue =  Date()
-    @State var returnDateValue = Date()
-    //    @State var bagSizeValue:
+        
+    @State private var destinationValue: String = ""
+    @State private var departureDateValue =  Date()
+    @State private var returnDateValue = Date()
     
     @State private var selectedBagSize: bagSize = .medium //standard value for picker
     
+    @FocusState private var destinationIsFocused: Bool
+    
+    //resets values of text field
+    func reset() {
+        destinationValue = ""
+    }
+    
+    //returns number of seconds that the trip will take, need to convert to days somehow
+    var tripLength: Int {
+
+        let delta = departureDateValue.distance(to: returnDateValue)
+        return Int(delta)
+    }
+    
+    //another similar try
+//    func calculateDelta(_ from: Date, and to: Date) -> Int {
+//        let numberOfDays = Calendar.current.dateComponents([.day], from: from, to: to)
+//
+//        return numberOfDays.day!
+//    }
     
     var body: some View {
         
         VStack{
             
-            VStack(alignment: .leading) {
+            Form{
                 
+                Section{
+                    TextField("Destination", text: $destinationValue)
+                }
+            header: {
                 Text("Where to?")
-                    .font(.callout)
-                    .bold()
-                    .foregroundColor(.blue)
-                
-                TextField(
-                    "Destination",
-                    text: $destinationValue //how can I write to the object inside TripViewModel?
-                )
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+            }
                 
                 
-                
-                //Departure Date (it would be nice to have a draggable calendar to select duration
+                Section{
+                    
+                    //Departure Date (it would be nice to have a draggable calendar to select duration
+                    
+                    DatePicker(
+                        "Departure",
+                        selection: $departureDateValue,
+                        displayedComponents: [.date]
+                    )
+                    .datePickerStyle(.compact)
+                    .accentColor(.pink)
+                    
+                    DatePicker(
+                        "Return",
+                        selection: $returnDateValue,
+                        displayedComponents: [.date]
+                    )
+                    .datePickerStyle(.compact)
+                }
+            header: {
                 Text("When's your trip?")
-                    .font(.callout)
-                    .bold()
-                    .foregroundColor(.blue)
-                
-                DatePicker(
-                    "Departure",
-                    selection: $departureDateValue,
-                    displayedComponents: [.date]
-                )
-                .datePickerStyle(.compact)
-                .accentColor(.pink)
+            }
                 
                 
-                
-                DatePicker(
-                    "Return",
-                    selection: $returnDateValue,
-                    displayedComponents: [.date]
-                )
-                .datePickerStyle(.compact)
-                
-                
-                Text("Bag Size")
-                    .font(.callout)
-                    .bold()
-                    .foregroundColor(.blue)
-                
-                
-                Picker("Bag Size", selection: $selectedBagSize) {
+                Section{
                     
-                    Text("Small").tag(bagSize.small)
-                    Text("Medium").tag(bagSize.medium)
-                    Text("Large").tag(bagSize.large)
+                    Picker("Bag Size", selection: $selectedBagSize) {
+                        
+                        Text("Small").tag(bagSize.small)
+                        Text("Medium").tag(bagSize.medium)
+                        Text("Large").tag(bagSize.large)
+                        
+                    }
+                    .pickerStyle(.segmented)
+                }
+            header: {
+                Text("Which backpack?")
+            }
+                
+                Section{
+                    Text("Great! You are going to \(destinationValue), for \(tripLength) seconds")
                     
                 }
-                .pickerStyle(.segmented)
-                
             }
-            .padding()
             
-            
-            
-            Button {
-                addNewTrip()
+            NavigationLink {
+                TripRecapView(destinationValue: $destinationValue)
             } label: {
-                Text("Print Monitor Test")
+                Text("Save Trip")
             }
-            
-            VStack {
-                
-                NavigationLink {
-                    TripRecapView()
-                } label: {
-                    Text("Next")
-                }
-                
-            }
-            .padding()
             
         }
-        .padding()
         .navigationTitle("Add New Trip")
-        
-    }
-    
-    
-    func addNewTrip() {
-        
-        print("You are going to \(destinationValue), \(departureDateValue), \(returnDateValue)")
-        
-        //create a new object Trip and append to view model
-    }
-    
-    
-}
 
+        
+        
+        //
+        //            Button {
+        //                addNewTrip()
+        //            } label: {
+        //                Text("Print Console Test")
+        //            }
+        //
+        //
+
+        //
+        
+        
+        
+        //    func addNewTrip() {
+        //
+        //        print("You are going to \(destinationValue), \(departureDateValue), \(returnDateValue)")
+        //
+        //        //create a new object Trip and append to view model
+        //    }
+        
+        
+    }
+}
 
 struct NewTrip_Previews: PreviewProvider {
     static var previews: some View {
