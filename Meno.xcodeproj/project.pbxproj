@@ -13,12 +13,12 @@
 		4E063A032908327600448DEB /* DetailTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E063A022908327600448DEB /* DetailTripView.swift */; };
 		4E0A0ADF290857670086403E /* TripRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0A0ADE290857670086403E /* TripRowView.swift */; };
 		4E0A0AE129086E1B0086403E /* TripRecapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0A0AE029086E1B0086403E /* TripRecapView.swift */; };
+		4E332956290A9320007ABADB /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E332955290A9320007ABADB /* SplashScreenView.swift */; };
 		4E3A148B290724EE0088A903 /* MenoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A148A290724EE0088A903 /* MenoApp.swift */; };
 		4E3A148D290724EE0088A903 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A148C290724EE0088A903 /* ContentView.swift */; };
 		4E3A148F290724F00088A903 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E3A148E290724F00088A903 /* Assets.xcassets */; };
 		4E3A1492290724F00088A903 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E3A1491290724F00088A903 /* Preview Assets.xcassets */; };
 		4E3A14992907259A0088A903 /* NewTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A14982907259A0088A903 /* NewTrip.swift */; };
-		4E3A149B29073EB60088A903 /* BagSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A149A29073EB60088A903 /* BagSelection.swift */; };
 		4E3A149D290744240088A903 /* ItemsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A149C290744240088A903 /* ItemsList.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,13 +29,13 @@
 		4E063A022908327600448DEB /* DetailTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTripView.swift; sourceTree = "<group>"; };
 		4E0A0ADE290857670086403E /* TripRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRowView.swift; sourceTree = "<group>"; };
 		4E0A0AE029086E1B0086403E /* TripRecapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRecapView.swift; sourceTree = "<group>"; };
+		4E332955290A9320007ABADB /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		4E3A1487290724EE0088A903 /* Meno.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meno.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E3A148A290724EE0088A903 /* MenoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenoApp.swift; sourceTree = "<group>"; };
 		4E3A148C290724EE0088A903 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4E3A148E290724F00088A903 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E3A1491290724F00088A903 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4E3A14982907259A0088A903 /* NewTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrip.swift; sourceTree = "<group>"; };
-		4E3A149A29073EB60088A903 /* BagSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagSelection.swift; sourceTree = "<group>"; };
 		4E3A149C290744240088A903 /* ItemsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,12 +62,12 @@
 		4E0639FE290825FB00448DEB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4E332955290A9320007ABADB /* SplashScreenView.swift */,
 				4E3A148C290724EE0088A903 /* ContentView.swift */,
 				4E0A0ADE290857670086403E /* TripRowView.swift */,
 				4E063A022908327600448DEB /* DetailTripView.swift */,
 				4E3A14982907259A0088A903 /* NewTrip.swift */,
 				4E0A0AE029086E1B0086403E /* TripRecapView.swift */,
-				4E3A149A29073EB60088A903 /* BagSelection.swift */,
 				4E3A149C290744240088A903 /* ItemsList.swift */,
 			);
 			path = Views;
@@ -192,9 +192,9 @@
 				4E063A032908327600448DEB /* DetailTripView.swift in Sources */,
 				4E063A00290828EF00448DEB /* TripViewModel.swift in Sources */,
 				4E0A0ADF290857670086403E /* TripRowView.swift in Sources */,
+				4E332956290A9320007ABADB /* SplashScreenView.swift in Sources */,
 				4E3A149D290744240088A903 /* ItemsList.swift in Sources */,
 				4E3A148D290724EE0088A903 /* ContentView.swift in Sources */,
-				4E3A149B29073EB60088A903 /* BagSelection.swift in Sources */,
 				4E0A0AE129086E1B0086403E /* TripRecapView.swift in Sources */,
 				4E0639FA2907C0F900448DEB /* TripModel.swift in Sources */,
 				4E3A148B290724EE0088A903 /* MenoApp.swift in Sources */,
@@ -335,6 +335,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -364,6 +365,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

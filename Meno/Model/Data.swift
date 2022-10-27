@@ -6,22 +6,25 @@
 
 import Foundation
 
-var trip0 = Trip (destination: "Florence",
-                  departureDate: Date.now,
-                  returnDate: Date.now,
-                  bagSize: bagSize.small
+var trip0 = Trip (icon: "heart.fill",
+                  destination: "Florence",
+                  departureDate: Date.distantPast,
+                  returnDate: Date.distantFuture,
+                  bagSize: "small"
 )
 
-var trip1 = Trip (destination: "New Orleans",
+var trip1 = Trip (icon: "airplane",
+                  destination: "New Orleans",
                   departureDate: Date.now,
-                  returnDate: Date.now,
-                  bagSize: bagSize.large
+                  returnDate: Date.distantFuture,
+                  bagSize: "medium"
+//                  bagSize: bagSize.large
 )
 
-var trip2 = Trip (destination: "New York",
+var trip2 = Trip (icon: "bag.fill",
+                  destination: "New York",
                   departureDate: Date.now,
-                  returnDate: Date.now,
-                  bagSize: bagSize.medium
+                  returnDate: Date.distantFuture,
+                  bagSize: "small"
 )
 
-var trip3 = Trip (destination: "", departureDate: Date.now, returnDate: Date.now, bagSize: bagSize.medium)

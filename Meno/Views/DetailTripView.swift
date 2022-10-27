@@ -18,24 +18,51 @@ struct TripDetailView: View {
 //            Image(trip.imageName)
 //                .resizable()
 //                .frame(width: 250, height: 250, alignment: .center)
-            Spacer()
-            Text(trip.destination)
-                .font(.largeTitle)
-                .padding(.bottom)
+
+            Image("pisa")
+                .resizable()
+                .scaledToFit()
             
-            Text(trip.destination)
-                .font(.body)
+//            Text("\(trip.id)")
+//                .font(.largeTitle)
+//                .padding(.bottom)
+            
+            Text("You are going to: \(trip.destination)")
+                .font(.title2)
                 .padding()
             
-            Button {
-                dismiss()
+            Text("Leaving on: \(trip.departureDate.formatted())")
+                .font(.body)
+            
+            Text("Returning on: \(trip.returnDate.formatted())")
+                .font(.body)
+            
+            Image(systemName: trip.icon)
+                .font(Font.system(.largeTitle).bold())
+            
+            
+            //This should be tappable to enter item list of the correct trip
+            NavigationLink {
+                ItemsList()
+
             } label: {
-                Text("Close")
-                    .font(.title)
+                Text("Your bag: \(trip.bagSize) >")
+                    .font(.body)
+                    .padding()
             }
+            .padding()
+            
+
+            
 
         }
         .navigationTitle("\(trip.destination)")
         
+    }
+}
+
+struct TripDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        TripDetailView(trip: Trip(icon: "circle.fill", destination: "Test Destination", departureDate: Date.now, returnDate: Date.now, bagSize: "Test bag size"))
     }
 }

@@ -39,10 +39,9 @@ struct ItemsList: View {
                     
                     Text(item.name)
                 }
- 
             }
-
         }
+//        .navigationBarItems(trailing: EditButton())
         .navigationTitle("Your Items")
 
 

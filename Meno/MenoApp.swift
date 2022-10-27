@@ -11,7 +11,7 @@ import SwiftUI
 struct MenoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(tripViewModel: TripViewModel())
         }
     }
 }

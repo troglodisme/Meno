@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct NewTrip: View {
-        
+    
+    
+    //Observe the trip model
+    @ObservedObject var tripViewModel: TripViewModel
+    
+    //Temporary variables to create a new array element in the model
+    //It should be possible to avoid this and just use the elements of the model but I am not sure how
     @State private var destinationValue: String = ""
     @State private var departureDateValue =  Date()
     @State private var returnDateValue = Date()
     
-    @State private var selectedBagSize: bagSize = .medium //standard value for picker
+    var bags = ["small", "medium", "large"]
+    @State private var selectedBag = "medium"
     
+    var vehicles = ["airplane", "car", "tram"]
+    @State private var selectedVehicle = "airplane"
+    
+    
+    //we could use this for something, not currently used
     @FocusState private var destinationIsFocused: Bool
     
     //resets values of text field
@@ -24,17 +36,11 @@ struct NewTrip: View {
     
     //returns number of seconds that the trip will take, need to convert to days somehow
     var tripLength: Int {
-
+        
         let delta = departureDateValue.distance(to: returnDateValue)
         return Int(delta)
     }
     
-    //another similar try
-//    func calculateDelta(_ from: Date, and to: Date) -> Int {
-//        let numberOfDays = Calendar.current.dateComponents([.day], from: from, to: to)
-//
-//        return numberOfDays.day!
-//    }
     
     var body: some View {
         
@@ -42,6 +48,7 @@ struct NewTrip: View {
             
             Form{
                 
+                //Destination (potentially a search field)
                 Section{
                     TextField("Destination", text: $destinationValue)
                 }
@@ -49,10 +56,8 @@ struct NewTrip: View {
                 Text("Where to?")
             }
                 
-                
+                //Departure Date (potentially a draggable calendar)
                 Section{
-                    
-                    //Departure Date (it would be nice to have a draggable calendar to select duration
                     
                     DatePicker(
                         "Departure",
@@ -73,58 +78,74 @@ struct NewTrip: View {
                 Text("When's your trip?")
             }
                 
+                Section{
+                    Picker("Choose Bag size", selection: $selectedBag) {
+                        ForEach(bags, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                    .pickerStyle(.inline)
+                    
+                }
+            header: {
+                Text("Which backpack?")
+                }
                 
                 Section{
-                    
-                    Picker("Bag Size", selection: $selectedBagSize) {
-                        
-                        Text("Small").tag(bagSize.small)
-                        Text("Medium").tag(bagSize.medium)
-                        Text("Large").tag(bagSize.large)
-                        
+                    Picker("Choose Vehicle", selection: $selectedVehicle) {
+                        ForEach(vehicles, id: \.self) {
+                            Text($0)
+                        }
                     }
                     .pickerStyle(.segmented)
                 }
             header: {
-                Text("Which backpack?")
-            }
-                
-                Section{
-                    Text("Great! You are going to \(destinationValue), for \(tripLength) seconds")
-                    
+                Text("How are you going?")
                 }
+                
+            }
+            
+            
+            Button {
+                //how can we pass variables to this?
+                tripViewModel.appendTrip()
+
+                tripViewModel.trips.append(Trip(icon: selectedVehicle,
+                                                destination: destinationValue,
+                                                departureDate: departureDateValue,
+                                                returnDate: returnDateValue,
+                                                bagSize: selectedBag)
+                )
+            } label: {
+                Text("Append demo trip")
             }
             
             NavigationLink {
-                TripRecapView(destinationValue: $destinationValue)
+                TripRecapView(tripViewModel: tripViewModel)
             } label: {
                 Text("Save Trip")
             }
             
         }
         .navigationTitle("Add New Trip")
-
+        .toolbar {
+            ToolbarItem {
+                //                                    Button("Save") {}
+                
+                Button(action: {
+                    print("Go to next view")
+                
+                    
+                }, label: {
+                    Text("Next")
+                    //                                        Image(systemName: "square.and.arrow.down.fill")
+                })
+                
+            }
+        }
         
         
-        //
-        //            Button {
-        //                addNewTrip()
-        //            } label: {
-        //                Text("Print Console Test")
-        //            }
-        //
-        //
-
-        //
         
-        
-        
-        //    func addNewTrip() {
-        //
-        //        print("You are going to \(destinationValue), \(departureDateValue), \(returnDateValue)")
-        //
-        //        //create a new object Trip and append to view model
-        //    }
         
         
     }
@@ -132,6 +153,6 @@ struct NewTrip: View {
 
 struct NewTrip_Previews: PreviewProvider {
     static var previews: some View {
-        NewTrip()
+        NewTrip(tripViewModel: TripViewModel())
     }
 }

@@ -11,11 +11,10 @@ import SwiftUI
 
 struct TripRecapView: View {
     
-    @ObservedObject var tripViewModel = TripViewModel() //instance of TripviewModel model
+    @ObservedObject var tripViewModel: TripViewModel //instance of TripviewModel model
     
-    @Binding var destinationValue: String
-
-
+    //    @Binding var destinationValue: String
+    
     var body: some View {
         
         VStack{
@@ -24,38 +23,66 @@ struct TripRecapView: View {
             //Here we need to implement a data structure to store/reuse the values entered by the user
             VStack{
                 
-                Text("Great! You are going to \(destinationValue)")
+                Text("You are going to: \(tripViewModel.trips.last!.destination)")
+                
+                Text("On: \(tripViewModel.trips.last!.departureDate.formatted())")
+                
+                Text("With a: \(tripViewModel.trips.last!.bagSize) bag")
+                
+                Image(systemName: tripViewModel.trips.last!.icon)
+                    .font(Font.system(.largeTitle).bold())
 
-                
-                Text("You are going to: \(tripViewModel.trips[1].destination)")  //this should be showing the newly created element
-                Text("On: \(tripViewModel.trips[1].departureDate.formatted())")
-                Text("For: [duration] nights") //calculate number of nights between two dates
-                
-            }
-            .padding()
-                        
-            VStack{
-                
+
                 NavigationLink {
                     ItemsList()
-                } label: {
-                    Text("Lugagge:")
-                    Text("[bagSize] bag") //calculate number of nights between two dates
 
+                } label: {
+                    Text("Go to Item list")
                 }
-                    
-            }
+                .padding()
+                
+
+//                Button {
+//
+//                } label: {
+//                    DetailTripView(trip: tripViewModel.trips.last!)  //trip? trip?
+//                }
+            
+
+            
+            //                Text("For: [duration] nights") //calculate number of nights between two dates
+            
+            
+            
         }
-        .navigationTitle("Trip Recap")
+        .padding()
         
     }
+        .navigationTitle("Trip Recap")
+        .toolbar {
+            ToolbarItem {
+                //                                    Button("Save") {}
+                
+                Button(action: {
+                    print("Go back to Main View")
+                
+                    
+                }, label: {
+                    Text("Done")
+                    //                                        Image(systemName: "square.and.arrow.down.fill")
+                })
+                
+            }
+        }
+    
+}
 }
 
 
 struct TripRecapView_Previews: PreviewProvider {
     static var previews: some View {
-        TripRecapView(destinationValue: .constant("test"))
+        TripRecapView(tripViewModel: TripViewModel() )
     }
 }
-    
+
 

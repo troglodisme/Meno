@@ -7,42 +7,54 @@
 
 import Foundation
 
-enum bagSize : String, CaseIterable {
-    case small, medium, large
-}
-
-//enum colorTag {
-//    case white, orange, blue, green, red
+//enum bagSize : String, CaseIterable {
+//    case small, medium, large
 //}
+
 
 struct Trip: Identifiable {
 
     let id = UUID()
     
+    var icon: String
     var destination: String
     var departureDate: Date
     var returnDate: Date
-//    var colorTag: colorTag
-    var bagSize: bagSize
+    var bagSize: String //dovrebbe essere un array o enum ma non mi riusciva :(
     
-//    var packignList: [allItems]
+    //add a variable for image or map pin
+    //var colorTag: colorTag
+
+//    var packingList: [ItemStore]
 }
 
 
-//Class store o un file da qualche parte?
+//struct Item {
+//
+//    var isPacked: Bool
+//    var name: String
+//
+//    init(isPacked: Bool, name: String) {
+//        self.isPacked = isPacked
+//        self.name = name
+//    }
+//}
+//
+////Class store o un file da qualche parte?
 //class ItemStore {
 //
 //    var allItems = [
 //
-//        Item(icon: "", name: ""),
-//        Item(icon: "", name: ""),
-//        Item(icon: "", name: ""),
-//        Item(icon: "", name: "")
+//        Item(isPacked: false, name: "item 1"),
+//        Item(isPacked: false, name: "item 2"),
+//        Item(isPacked: false, name: "item 3"),
+//        Item(isPacked: false, name: "item 4")
+//
 //    ]
 //
-//    func add(newItem: Item) {
-//        allItems.append(newItem)
-//    }s
+////    func add(newItem: Item) {
+////        allItems.append(newItem)
+////    }
 //}
 
 
