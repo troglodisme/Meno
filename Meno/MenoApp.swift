@@ -11,7 +11,8 @@ import SwiftUI
 struct MenoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(tripViewModel: TripViewModel())
+            SplashScreenView()
+           //  ContentView(tripViewModel: TripViewModel())
         }
     }
 }
