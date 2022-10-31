@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct NewTrip: View {
     
@@ -13,14 +14,16 @@ struct NewTrip: View {
     //Observe the trip model
     @ObservedObject var tripViewModel: TripViewModel
     
+    @Binding var isPresenting: Bool
+    
     //Temporary variables to create a new array element in the model
     //It should be possible to avoid this and just use the elements of the model but I am not sure how
     @State private var destinationValue: String = ""
     @State private var departureDateValue =  Date()
     @State private var returnDateValue = Date()
     
-    var bags = ["small", "medium", "large"]
-    @State private var selectedBag = "medium"
+    var bags = ["20L", "30L", "40L"]
+    @State private var selectedBag = "30L"
     
     var vehicles = ["airplane", "car", "tram"]
     @State private var selectedVehicle = "airplane"
@@ -44,115 +47,148 @@ struct NewTrip: View {
     
     var body: some View {
         
-        VStack{
+        VStack {
             
-            Form{
+            VStack{
                 
-                //Destination (potentially a search field)
-                Section{
-                    TextField("Destination", text: $destinationValue)
+                Form{
+                    //Destination (potentially a search field)
+                    Section{
+                        TextField("Destination", text: $destinationValue)
+                    }
+                header: {
+                    Text("Where to?")
                 }
-            header: {
-                Text("Where to?")
-            }
-                
-                //Departure Date (potentially a draggable calendar)
-                Section{
                     
-                    DatePicker(
-                        "Departure",
-                        selection: $departureDateValue,
-                        displayedComponents: [.date]
-                    )
-                    .datePickerStyle(.compact)
-                    .accentColor(.pink)
-                    
-                    DatePicker(
-                        "Return",
-                        selection: $returnDateValue,
-                        displayedComponents: [.date]
-                    )
-                    .datePickerStyle(.compact)
-                }
-            header: {
-                Text("When's your trip?")
-            }
-                
-                Section{
-                    Picker("Choose Bag size", selection: $selectedBag) {
-                        ForEach(bags, id: \.self) {
-                            Text($0)
+                    //Departure Date (potentially a draggable calendar)
+                    Section{
+                        
+                        HStack{
+                            VStack{
+                                Text("Departure")
+                                DatePicker(
+                                    "",
+                                    selection: $departureDateValue,
+                                    displayedComponents: [.date]
+                                )
+                                .datePickerStyle(.automatic)
+                            }
+                            
+                            Text("-")
+                            
+                            VStack{
+                                Text("Return")
+                                DatePicker(
+                                    "",
+                                    selection: $returnDateValue,
+                                    displayedComponents: [.date]
+                                )
+                                .datePickerStyle(.automatic)
+                                .accentColor(.pink)
+                            }
                         }
                     }
-                    .pickerStyle(.inline)
+                header: {
+                    Text("When's your trip?")
+                }
                     
-                }
-            header: {
-                Text("Which backpack?")
-                }
-                
-                Section{
-                    Picker("Choose Vehicle", selection: $selectedVehicle) {
-                        ForEach(vehicles, id: \.self) {
-                            Text($0)
-                        }
-                    }
-                    .pickerStyle(.segmented)
-                }
-            header: {
-                Text("How are you going?")
-                }
-                
-            }
-            
-            
-            Button {
-                //how can we pass variables to this?
-                tripViewModel.appendTrip()
+                                                                    
+                    Section{
 
-                tripViewModel.trips.append(Trip(icon: selectedVehicle,
-                                                destination: destinationValue,
-                                                departureDate: departureDateValue,
-                                                returnDate: returnDateValue,
-                                                bagSize: selectedBag)
-                )
-            } label: {
-                Text("Append demo trip")
-            }
-            
-            NavigationLink {
-                TripRecapView(tripViewModel: tripViewModel)
-            } label: {
-                Text("Save Trip")
-            }
-            
-        }
-        .navigationTitle("Add New Trip")
-        .toolbar {
-            ToolbarItem {
-                //                                    Button("Save") {}
-                
-                Button(action: {
-                    print("Go to next view")
-                
+                        
+                        Picker("Choose Bag size", selection: $selectedBag) {
+                            
+                            ForEach(bags, id: \.self) {
+                                Text($0)
+                            }
+                        }
+                        .pickerStyle(.inline)
+                    }
+                header: {
+                    Text("Which backpack?")
+                    }
                     
-                }, label: {
-                    Text("Next")
-                    //                                        Image(systemName: "square.and.arrow.down.fill")
-                })
+                    Section{
+                        Picker("Choose Vehicle", selection: $selectedVehicle) {
+                            ForEach(vehicles, id: \.self) {
+                                Text($0)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                    }
+                header: {
+                    Text("How are you going?")
+                    }
+                    
+                }
+                
+                HStack{
+                    
+//                    Button(action: {
+//                        print("test")
+//                    }) {
+//                        Image(systemName: "moon.stars.fill")
+//                    }
+//                    
+//                    Button(action: {
+//                        print("test")
+//                    }) {
+//                        Image("bag")
+//                    }
+//                    
+//                    Button(action: {
+//                        print("test")
+//                    }) {
+//                        Image(systemName: "car")
+//                    }
+                }
+                
+
                 
             }
+            .navigationBarTitle("Add New Trip", displayMode: .inline)
+            .toolbar {
+                ToolbarItem {
+                    
+                    Button(action: {
+                        
+                        tripViewModel.trips.append(Trip(icon: selectedVehicle,
+                                                        destination: destinationValue,
+                                                        departureDate: departureDateValue,
+                                                        returnDate: returnDateValue,
+                                                        bagSize: selectedBag,
+                                                        isArchived: false,
+                                                        coordinate: CLLocationCoordinate2D(latitude: 51.501, longitude: -0.141),
+                                                        image: Image("Placeholder")
+                            )
+                        )
+                        
+                        isPresenting = false
+                        
+                    }, label: {
+                        Text("Done")
+                    })
+                    
+                }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    
+                    Button(action: {
+                                            
+                        isPresenting = false
+                        
+                    }, label: {
+                        Text("Cancel")
+                    })
+                    
+                }
+         }
         }
-        
-        
-        
-        
-        
     }
 }
 
-struct NewTrip_Previews: PreviewProvider {
-    static var previews: some View {
-        NewTrip(tripViewModel: TripViewModel())
-    }
-}
+//struct NewTrip_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NewTrip(tripViewModel: TripViewModel, isPresenting: $isPresenting)
+//    }
+//}

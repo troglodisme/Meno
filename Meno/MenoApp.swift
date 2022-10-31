@@ -9,10 +9,15 @@ import SwiftUI
 
 @main
 struct MenoApp: App {
+    
+//    init() {
+//        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor : UIColor.orange]
+//    }
+    
     var body: some Scene {
         WindowGroup {
-            SplashScreenView()
-           //  ContentView(tripViewModel: TripViewModel())
+//            SplashScreenView()
+             ContentView(tripViewModel: TripViewModel())
         }
     }
 }

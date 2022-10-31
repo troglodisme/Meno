@@ -6,14 +6,20 @@
 //
 
 import Foundation
+import CoreLocation
 
 //enum bagSize : String, CaseIterable {
 //    case small, medium, large
 //}
 
+import Foundation
+import SwiftUI
+//import CoreLocation
+//import MapKit
 
 struct Trip: Identifiable {
 
+//    let id = UUID()
     let id = UUID()
     
     var icon: String
@@ -21,25 +27,31 @@ struct Trip: Identifiable {
     var departureDate: Date
     var returnDate: Date
     var bagSize: String //dovrebbe essere un array o enum ma non mi riusciva :(
+    var isArchived: Bool
+    var coordinate: CLLocationCoordinate2D
+    var image: Image
     
-    //add a variable for image or map pin
-    //var colorTag: colorTag
-
-//    var packingList: [ItemStore]
 }
 
 
-//struct Item {
+
+//add item category to subgroup on the view
+
+//var ItemsStore = [
+//    Item(isPacked: false, name: "item 1"),
+//    Item(isPacked: false, name: "item 2"),
+//    Item(isPacked: false, name: "item 3"),
+//    Item(isPacked: false, name: "item 4")
+//]
 //
-//    var isPacked: Bool
-//    var name: String
 //
-//    init(isPacked: Bool, name: String) {
-//        self.isPacked = isPacked
-//        self.name = name
-//    }
-//}
+//var categories = [
 //
+//    "Accessory", "Clothes", "Documents", "Health", "Housing", "Makeup", "Others"
+//]
+
+//add function to be able to add new items
+
 ////Class store o un file da qualche parte?
 //class ItemStore {
 //
@@ -51,10 +63,11 @@ struct Trip: Identifiable {
 //        Item(isPacked: false, name: "item 4")
 //
 //    ]
-//
-////    func add(newItem: Item) {
-////        allItems.append(newItem)
-////    }
+
+//    func add(newItem: Item) {
+//        allItems.append(newItem)
+//    }
+    
 //}
 
 

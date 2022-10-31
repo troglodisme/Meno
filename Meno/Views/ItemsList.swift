@@ -12,16 +12,16 @@ import SwiftUI
 struct MyItem: Identifiable {
     let id = UUID()
     let name: String
-    var isCompleted: Bool
+    var isPacked: Bool
 }
 
 struct ItemsList: View {
     
     @State private var items = [
-        MyItem(name: "tent", isCompleted: false),
-        MyItem(name: "sleeping bag", isCompleted: false),
-        MyItem(name: "bear spray", isCompleted: false),
-        MyItem(name: "battery pack", isCompleted: false)
+        MyItem(name: "tent", isPacked: false),
+        MyItem(name: "sleeping bag", isPacked: false),
+        MyItem(name: "bear spray", isPacked: false),
+        MyItem(name: "battery pack", isPacked: false)
     ]
     
     var body: some View {
@@ -31,10 +31,10 @@ struct ItemsList: View {
             List($items) { $item in
                 
                 HStack{
-                    Image(systemName: item.isCompleted ? "checkmark.circle" : "circle")
+                    Image(systemName: item.isPacked ? "checkmark.circle" : "circle")
                     
                         .onTapGesture {
-                            item.isCompleted.toggle()
+                            item.isPacked.toggle()
                         }
                     
                     Text(item.name)

@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4E0639FA2907C0F900448DEB /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0639F92907C0F900448DEB /* TripModel.swift */; };
-		4E0639FC2907CE7900448DEB /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0639FB2907CE7900448DEB /* Data.swift */; };
 		4E063A00290828EF00448DEB /* TripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0639FF290828EF00448DEB /* TripViewModel.swift */; };
-		4E063A032908327600448DEB /* DetailTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E063A022908327600448DEB /* DetailTripView.swift */; };
 		4E0A0ADF290857670086403E /* TripRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0A0ADE290857670086403E /* TripRowView.swift */; };
-		4E0A0AE129086E1B0086403E /* TripRecapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0A0AE029086E1B0086403E /* TripRecapView.swift */; };
+		4E0A0AE129086E1B0086403E /* TripDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0A0AE029086E1B0086403E /* TripDetailView.swift */; };
+		4E321A9E2910261B00AAAAA5 /* BackpackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E321A9D2910261B00AAAAA5 /* BackpackView.swift */; };
 		4E332956290A9320007ABADB /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E332955290A9320007ABADB /* SplashScreenView.swift */; };
 		4E3A148B290724EE0088A903 /* MenoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A148A290724EE0088A903 /* MenoApp.swift */; };
 		4E3A148D290724EE0088A903 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A148C290724EE0088A903 /* ContentView.swift */; };
@@ -20,15 +19,15 @@
 		4E3A1492290724F00088A903 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E3A1491290724F00088A903 /* Preview Assets.xcassets */; };
 		4E3A14992907259A0088A903 /* NewTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A14982907259A0088A903 /* NewTrip.swift */; };
 		4E3A149D290744240088A903 /* ItemsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A149C290744240088A903 /* ItemsList.swift */; };
+		4EF962E8290FDD1B00073BD5 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF962E7290FDD1B00073BD5 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4E0639F92907C0F900448DEB /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
-		4E0639FB2907CE7900448DEB /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		4E0639FF290828EF00448DEB /* TripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewModel.swift; sourceTree = "<group>"; };
-		4E063A022908327600448DEB /* DetailTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTripView.swift; sourceTree = "<group>"; };
 		4E0A0ADE290857670086403E /* TripRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRowView.swift; sourceTree = "<group>"; };
-		4E0A0AE029086E1B0086403E /* TripRecapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRecapView.swift; sourceTree = "<group>"; };
+		4E0A0AE029086E1B0086403E /* TripDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailView.swift; sourceTree = "<group>"; };
+		4E321A9D2910261B00AAAAA5 /* BackpackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackpackView.swift; sourceTree = "<group>"; };
 		4E332955290A9320007ABADB /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		4E3A1487290724EE0088A903 /* Meno.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meno.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E3A148A290724EE0088A903 /* MenoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenoApp.swift; sourceTree = "<group>"; };
@@ -37,6 +36,7 @@
 		4E3A1491290724F00088A903 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4E3A14982907259A0088A903 /* NewTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrip.swift; sourceTree = "<group>"; };
 		4E3A149C290744240088A903 /* ItemsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsList.swift; sourceTree = "<group>"; };
+		4EF962E7290FDD1B00073BD5 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +54,6 @@
 			isa = PBXGroup;
 			children = (
 				4E0639F92907C0F900448DEB /* TripModel.swift */,
-				4E0639FB2907CE7900448DEB /* Data.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -62,13 +61,13 @@
 		4E0639FE290825FB00448DEB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4E332955290A9320007ABADB /* SplashScreenView.swift */,
 				4E3A148C290724EE0088A903 /* ContentView.swift */,
 				4E0A0ADE290857670086403E /* TripRowView.swift */,
-				4E063A022908327600448DEB /* DetailTripView.swift */,
 				4E3A14982907259A0088A903 /* NewTrip.swift */,
-				4E0A0AE029086E1B0086403E /* TripRecapView.swift */,
+				4E0A0AE029086E1B0086403E /* TripDetailView.swift */,
+				4EF962E7290FDD1B00073BD5 /* MapView.swift */,
 				4E3A149C290744240088A903 /* ItemsList.swift */,
+				4E321A9D2910261B00AAAAA5 /* BackpackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -101,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				4E3A148A290724EE0088A903 /* MenoApp.swift */,
+				4E332955290A9320007ABADB /* SplashScreenView.swift */,
 				4E0639FE290825FB00448DEB /* Views */,
 				4E063A012908291400448DEB /* ViewModel */,
 				4E0639FD2908254B00448DEB /* Model */,
@@ -188,15 +188,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E0639FC2907CE7900448DEB /* Data.swift in Sources */,
-				4E063A032908327600448DEB /* DetailTripView.swift in Sources */,
 				4E063A00290828EF00448DEB /* TripViewModel.swift in Sources */,
+				4E321A9E2910261B00AAAAA5 /* BackpackView.swift in Sources */,
 				4E0A0ADF290857670086403E /* TripRowView.swift in Sources */,
 				4E332956290A9320007ABADB /* SplashScreenView.swift in Sources */,
 				4E3A149D290744240088A903 /* ItemsList.swift in Sources */,
 				4E3A148D290724EE0088A903 /* ContentView.swift in Sources */,
-				4E0A0AE129086E1B0086403E /* TripRecapView.swift in Sources */,
+				4E0A0AE129086E1B0086403E /* TripDetailView.swift in Sources */,
 				4E0639FA2907C0F900448DEB /* TripModel.swift in Sources */,
+				4EF962E8290FDD1B00073BD5 /* MapView.swift in Sources */,
 				4E3A148B290724EE0088A903 /* MenoApp.swift in Sources */,
 				4E3A14992907259A0088A903 /* NewTrip.swift in Sources */,
 			);
@@ -327,7 +327,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Meno/Preview Content\"";
-				DEVELOPMENT_TEAM = 687F7L8Q3K;
+				DEVELOPMENT_TEAM = J566499KXW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -357,7 +357,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Meno/Preview Content\"";
-				DEVELOPMENT_TEAM = 687F7L8Q3K;
+				DEVELOPMENT_TEAM = J566499KXW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
