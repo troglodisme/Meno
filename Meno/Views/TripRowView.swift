@@ -50,7 +50,8 @@ struct TripRowView_Previews: PreviewProvider {
                                bagSize: "Which Size?",
                                isArchived: true,
                                coordinate: CLLocationCoordinate2D(latitude: 51.501, longitude: -0.141),
-                               image: Image("Firenze")
+                               image: Image("Firenze"),
+                               items: [Item(isPacked: false, name: "passport"), Item(isPacked: false, name: "keys")]
 
             )
         )

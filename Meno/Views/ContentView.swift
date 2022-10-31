@@ -29,7 +29,7 @@ struct ContentView: View {
 
                         ForEach(tripViewModel.upcomingTrips) { trip in
 
-                            NavigationLink(destination: TripDetailView(tripViewModel: TripViewModel(), trip: trip)) {
+                            NavigationLink(destination: TripDetailView(trip: trip)) {
 
                             TripRowView(trip: trip)
                             }
@@ -42,15 +42,16 @@ struct ContentView: View {
                     {
                         ForEach(tripViewModel.archivedTrips) { trip in
 
-                            NavigationLink(destination: TripDetailView(tripViewModel: TripViewModel(), trip: trip)) {
+                            NavigationLink(destination: TripDetailView(trip: trip)) {
 
                             TripRowView(trip: trip)
                             }
                         }
                         .onDelete(perform: tripViewModel.remove)
                     }
-                    
                 }
+
+                
 
 //                Section(header: Text("Archive"))
 //                {

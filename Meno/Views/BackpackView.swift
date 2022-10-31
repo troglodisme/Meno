@@ -49,7 +49,8 @@ struct BackpackView_Previews: PreviewProvider {
                          bagSize: "15L",
                          isArchived: false,
                          coordinate: CLLocationCoordinate2D(latitude: 43.769, longitude: 11.255),
-                         image: Image("Firenze")
+                         image: Image("Firenze"),
+                         items: [Item(isPacked: false, name: "passport"), Item(isPacked: false, name: "keys")]
                         )
         )
     }

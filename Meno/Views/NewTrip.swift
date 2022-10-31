@@ -22,7 +22,7 @@ struct NewTrip: View {
     @State private var departureDateValue =  Date()
     @State private var returnDateValue = Date()
     
-    var bags = ["20L", "30L", "40L"]
+    var bags = ["15L", "30L", "40L"]
     @State private var selectedBag = "30L"
     
     var vehicles = ["airplane", "car", "tram"]
@@ -159,7 +159,8 @@ struct NewTrip: View {
                                                         bagSize: selectedBag,
                                                         isArchived: false,
                                                         coordinate: CLLocationCoordinate2D(latitude: 51.501, longitude: -0.141),
-                                                        image: Image("Placeholder")
+                                                        image: Image("Placeholder"),
+                                                        items: [Item(isPacked: false, name: "item 1"), Item(isPacked: false, name: "item 2")]
                             )
                         )
                         

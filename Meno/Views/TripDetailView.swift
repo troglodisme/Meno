@@ -9,17 +9,31 @@ import SwiftUI
 import CoreLocation
 import MapKit
 
+struct CircleImage: View {
+    var image: Image
+
+    var body: some View {
+        image
+            .clipShape(Circle())
+            .overlay {
+                Circle().stroke(.white, lineWidth: 4)
+            }
+            .shadow(radius: 7)
+    }
+}
+
+
 struct TripDetailView: View {
     
-    @ObservedObject var tripViewModel: TripViewModel
+    @ObservedObject var trip: Trip
     
-    var trip: Trip
+//    var trip: Trip
 
     @State private var selection: String? = nil
         
     var body: some View {
-                
-        VStack{
+        
+        ScrollView{
             
             MapView(coordinate: trip.coordinate)
                 .ignoresSafeArea(edges: .top)
@@ -73,12 +87,11 @@ struct TripDetailView: View {
                     BackpackView(trip: trip)
 
                 }
-                
             }
             .padding()
 
             
-            NavigationLink(destination: ItemsList(), label: {
+            NavigationLink(destination: ItemsList(trip: trip), label: {
                 Text("Items List")
                     .bold()
                     .frame(width: 280, height: 50)
@@ -97,15 +110,15 @@ struct TripDetailView: View {
 
 struct TripDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        TripDetailView(tripViewModel: TripViewModel(), trip:
-                        Trip(icon: "tram",
+        TripDetailView(trip: Trip(icon: "tram",
                              destination: "Florence",
                              departureDate: Date.distantPast,
                              returnDate: Date.distantFuture,
                              bagSize: "15L",
                              isArchived: false,
                              coordinate: CLLocationCoordinate2D(latitude: 43.769, longitude: 11.255),
-                             image: Image("Firenze")
+                             image: Image("Firenze"),
+                             items: [Item(isPacked: false, name: "passport"), Item(isPacked: false, name: "keys")]
                              
          )
         )

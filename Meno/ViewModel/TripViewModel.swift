@@ -21,7 +21,8 @@ class TripViewModel: ObservableObject {
               bagSize: "15L",
               isArchived: true,
               coordinate: CLLocationCoordinate2D(latitude: 43.769, longitude: 11.255),
-              image: Image("Firenze")
+              image: Image("Firenze"),
+              items: [Item(isPacked: false, name: "passport 1"), Item(isPacked: false, name: "keys")]
         ),
 
         Trip (icon: "airplane",
@@ -31,7 +32,8 @@ class TripViewModel: ObservableObject {
               bagSize: "30L",
               isArchived: true,
               coordinate: CLLocationCoordinate2D(latitude: 50.627, longitude: -4.635),
-              image: Image("Cornwall")
+              image: Image("Cornwall"),
+              items: [Item(isPacked: true, name: "passport 2"), Item(isPacked: false, name: "keys")]
         ),
 
         Trip (icon: "figure.walk",
@@ -41,8 +43,8 @@ class TripViewModel: ObservableObject {
               bagSize: "40L",
               isArchived: true,
               coordinate: CLLocationCoordinate2D(latitude: 40.621, longitude: 14.520),
-              image: Image("SentieroDegliDei")
-                
+              image: Image("SentieroDegliDei"),
+              items: [Item(isPacked: false, name: "passport 3"), Item(isPacked: false, name: "keys")]                
         )
 ]
 
