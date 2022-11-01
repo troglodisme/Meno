@@ -1,5 +1,3 @@
-//
-//  BagSelection.swift
 //  Meno
 //
 //  Created by Giulio Ammendola on 24/10/2022.

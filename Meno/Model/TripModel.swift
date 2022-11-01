@@ -31,11 +31,19 @@ struct Trip: Identifiable {
     var coordinate: CLLocationCoordinate2D
     var image: Image
     
+//    var ItemsStore: []
 }
 
+/*
+ The purpose of the app is for the user to receive some tips on what to bring when going backpacking.
+ Each Trip should also have a list of items attached to it and it should be possible to edit them and add new ones.
+ For example, if I am going to San Francisco and I have selected a 20L backpack my item list will only show a set of items
+ that make sense for that type of backpack. While if i choose a 40L backpack i will get more items.
+ It should then be possible to toggle the items (to show that I have packed them), store the toggle state, and add new items as well).
+ 
+ */
 
-
-//add item category to subgroup on the view
+//add item category to subgroup
 
 //var ItemsStore = [
 //    Item(isPacked: false, name: "item 1"),
@@ -50,7 +58,6 @@ struct Trip: Identifiable {
 //    "Accessory", "Clothes", "Documents", "Health", "Housing", "Makeup", "Others"
 //]
 
-//add function to be able to add new items
 
 ////Class store o un file da qualche parte?
 //class ItemStore {
