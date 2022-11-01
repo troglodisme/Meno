@@ -15,8 +15,7 @@ struct BackpackView: View {
         
         VStack{
             HStack{
-                    
-                
+                                
                 Image("\(trip.bagSize)")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -26,6 +25,8 @@ struct BackpackView: View {
                 
                 Text("\(trip.bagSize) Backpack")
                     .font(.title)
+                
+                Image(systemName: "chevron.right")
                                 
             }
             .padding()
@@ -34,6 +35,7 @@ struct BackpackView: View {
                     .stroke(.gray, lineWidth: 1)
             )
         }
+
 
         
     }
@@ -49,8 +51,7 @@ struct BackpackView_Previews: PreviewProvider {
                          bagSize: "15L",
                          isArchived: false,
                          coordinate: CLLocationCoordinate2D(latitude: 43.769, longitude: 11.255),
-                         image: Image("Firenze"),
-                         items: [Item(isPacked: false, name: "passport"), Item(isPacked: false, name: "keys")]
+                         image: Image("Firenze")
                         )
         )
     }

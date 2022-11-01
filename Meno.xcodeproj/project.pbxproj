@@ -19,6 +19,8 @@
 		4E3A1492290724F00088A903 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E3A1491290724F00088A903 /* Preview Assets.xcassets */; };
 		4E3A14992907259A0088A903 /* NewTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A14982907259A0088A903 /* NewTrip.swift */; };
 		4E3A149D290744240088A903 /* ItemsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A149C290744240088A903 /* ItemsList.swift */; };
+		4EE64E83291070F000E3BA90 /* ToDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE64E82291070F000E3BA90 /* ToDoList.swift */; };
+		4EE64E852911236400E3BA90 /* BackpackRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE64E842911236400E3BA90 /* BackpackRow.swift */; };
 		4EF962E8290FDD1B00073BD5 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF962E7290FDD1B00073BD5 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +38,8 @@
 		4E3A1491290724F00088A903 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4E3A14982907259A0088A903 /* NewTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrip.swift; sourceTree = "<group>"; };
 		4E3A149C290744240088A903 /* ItemsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsList.swift; sourceTree = "<group>"; };
+		4EE64E82291070F000E3BA90 /* ToDoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList.swift; sourceTree = "<group>"; };
+		4EE64E842911236400E3BA90 /* BackpackRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackpackRow.swift; sourceTree = "<group>"; };
 		4EF962E7290FDD1B00073BD5 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,13 +65,15 @@
 		4E0639FE290825FB00448DEB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4EE64E82291070F000E3BA90 /* ToDoList.swift */,
 				4E3A148C290724EE0088A903 /* ContentView.swift */,
 				4E0A0ADE290857670086403E /* TripRowView.swift */,
 				4E3A14982907259A0088A903 /* NewTrip.swift */,
+				4EE64E842911236400E3BA90 /* BackpackRow.swift */,
 				4E0A0AE029086E1B0086403E /* TripDetailView.swift */,
+				4E321A9D2910261B00AAAAA5 /* BackpackView.swift */,
 				4EF962E7290FDD1B00073BD5 /* MapView.swift */,
 				4E3A149C290744240088A903 /* ItemsList.swift */,
-				4E321A9D2910261B00AAAAA5 /* BackpackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,12 +195,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E063A00290828EF00448DEB /* TripViewModel.swift in Sources */,
+				4EE64E852911236400E3BA90 /* BackpackRow.swift in Sources */,
 				4E321A9E2910261B00AAAAA5 /* BackpackView.swift in Sources */,
 				4E0A0ADF290857670086403E /* TripRowView.swift in Sources */,
 				4E332956290A9320007ABADB /* SplashScreenView.swift in Sources */,
 				4E3A149D290744240088A903 /* ItemsList.swift in Sources */,
 				4E3A148D290724EE0088A903 /* ContentView.swift in Sources */,
 				4E0A0AE129086E1B0086403E /* TripDetailView.swift in Sources */,
+				4EE64E83291070F000E3BA90 /* ToDoList.swift in Sources */,
 				4E0639FA2907C0F900448DEB /* TripModel.swift in Sources */,
 				4EF962E8290FDD1B00073BD5 /* MapView.swift in Sources */,
 				4E3A148B290724EE0088A903 /* MenoApp.swift in Sources */,

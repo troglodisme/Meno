@@ -18,73 +18,82 @@ struct MyItem: Identifiable {
 
 struct ItemsList: View {
     
-    @ObservedObject var trip: Trip
-    @State var selections: SelectKeeper = SelectKeeper<Item>()
+    var trip: Trip
+    
+    @State private var items = [
+        MyItem(name: "Tent", isPacked: false),
+        MyItem(name: "Sleeping bag", isPacked: false),
+        MyItem(name: "Bear spray", isPacked: false),
+        MyItem(name: "Battery pack", isPacked: false),
+        MyItem(name: "Socks", isPacked: false),
+        MyItem(name: "Shirts", isPacked: false),
+        MyItem(name: "Jacket", isPacked: false),
+        MyItem(name: "Toothbrush", isPacked: false),
+        MyItem(name: "Toothpaste", isPacked: false),
+        MyItem(name: "Soap", isPacked: false),
+        MyItem(name: "Sunglasses", isPacked: false),
+        MyItem(name: "Watch", isPacked: false),
+        MyItem(name: "GoPro", isPacked: false),
+        MyItem(name: "Earphones", isPacked: false),
+    ]
     
     var body: some View {
         
         VStack{
             
-            List(trip.items) { item in
+            Image("\(trip.bagSize)")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 50)
+            
+            List($items) { $item in
                 
                 HStack{
-                    Image(systemName: selections.isSelected(item) ? "checkmark.circle" : "circle")
+                    
+                    Image(systemName: item.isPacked ? "checkmark.circle" : "circle")
                     
                         .onTapGesture {
-                            selections.toggleSelection(item)
-                            trip.packedItems.append(item)
+                            item.isPacked.toggle()
                         }
-                    
+
                     Text(item.name)
                 }
             }
-        }
-//        .navigationBarItems(trailing: EditButton())
-        .navigationTitle("Your Items")
 
+        }
+        .navigationTitle("Your Items for \(trip.destination)")
+        .toolbar {
+            ToolbarItem {
+                
+                Button(action: {
+                                        
+                }, label: {
+                    Text("Done")
+                })
+                
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
 
     }
 }
-
-struct SelectKeeper<T: Hashable> {
-    
-    var selections = Set<T>()
-    
-    mutating func select(_ value: T) {
-        selections.insert(value)
-    }
-    
-    mutating func deselect(_ value: T) {
-        selections.remove(value)
-    }
-    
-    mutating func toggleSelection(_ value: T) {
-        if selections.contains(value) {
-            selections.remove(value)
-        } else {
-            selections.insert(value)
-        }
-    }
-    
-    func isSelected(_ value: T) -> Bool {
-        return selections.contains(value)
-    }
-    
-    typealias SelectionValue = T
-}
-
 
 struct ItemsList_Previews: PreviewProvider {
     static var previews: some View {
-        ItemsList(trip: Trip (icon: "tram",
-                              destination: "Florence",
-                              departureDate: Date.distantPast,
-                              returnDate: Date.distantFuture,
-                              bagSize: "15L",
-                              isArchived: true,
-                              coordinate: CLLocationCoordinate2D(latitude: 43.769, longitude: 11.255),
-                              image: Image("Firenze"),
-                              items: [Item(isPacked: false, name: "passport 1"), Item(isPacked: false, name: "keys")]
+        ItemsList(trip: Trip(icon: "tram",
+                         destination: "Florence",
+                         departureDate: Date.distantPast,
+                         returnDate: Date.distantFuture,
+                         bagSize: "20L",
+                         isArchived: false,
+                         coordinate: CLLocationCoordinate2D(latitude: 43.769, longitude: 11.255),
+                         image: Image("Firenze")
                         )
         )
     }

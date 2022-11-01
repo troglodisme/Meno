@@ -18,22 +18,53 @@ struct TripRowView: View {
             HStack{
                 
                 //this should be a parameter that can be changed for each trip
-                Image(systemName: trip.icon)
-                    .font(Font.system(.largeTitle))
+//                Image(systemName: trip.icon)
+//                    .font(Font.system(.largeTitle))
+                
+                trip.image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 90)
+                    .clipShape(Circle())
+                    .shadow(radius: 2)
                 
                 VStack (alignment: .leading){
                     Text(trip.destination)
-                        .font(.headline)
+                        .font(.title2)
                     
-                    Text(trip.departureDate.formatted())
-                        .font(.subheadline)
-                    
-                    Text(trip.bagSize.capitalized)
-                        .font(.subheadline)
-                    
+                    HStack{
+                        
+                        Text(trip.departureDate.formatted(.dateTime.day().month()))
+                            .font(.subheadline)
+                        
+                        Text("-")
+                        
+                        Text(trip.returnDate.formatted(.dateTime.day().month()))
+                            .font(.subheadline)
+                        
+                        Spacer()
+
+                    }
+
+//                    HStack{
+//                        
+//                        Image("\(trip.bagSize)")
+//                            .resizable()
+//                            .aspectRatio(contentMode: .fit)
+//                            .frame(width: 30)
+//                        
+//                        Text(trip.bagSize.capitalized)
+//                            .font(.subheadline)
+//                    }
                 }
                 .padding()
             }
+//            .background(
+//                Image("Firenze")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fill)
+//            )
+        
 
     }
 
@@ -47,11 +78,10 @@ struct TripRowView_Previews: PreviewProvider {
                                destination: "Which City?",
                                departureDate: Date.distantPast,
                                returnDate: Date.now,
-                               bagSize: "Which Size?",
+                               bagSize: "20L",
                                isArchived: true,
                                coordinate: CLLocationCoordinate2D(latitude: 51.501, longitude: -0.141),
-                               image: Image("Firenze"),
-                               items: [Item(isPacked: false, name: "passport"), Item(isPacked: false, name: "keys")]
+                               image: Image("Sentiero Degli Dei")
 
             )
         )

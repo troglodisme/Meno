@@ -22,10 +22,10 @@ struct NewTrip: View {
     @State private var departureDateValue =  Date()
     @State private var returnDateValue = Date()
     
-    var bags = ["15L", "30L", "40L"]
+    var bags = ["20L", "30L", "40L"]
     @State private var selectedBag = "30L"
     
-    var vehicles = ["airplane", "car", "tram"]
+    var vehicles = ["airplane", "car", "tram", "ferry"]
     @State private var selectedVehicle = "airplane"
     
     
@@ -63,88 +63,65 @@ struct NewTrip: View {
                     //Departure Date (potentially a draggable calendar)
                     Section{
                         
-                        HStack{
-                            VStack{
-                                Text("Departure")
+                        VStack{
+                            
+                            HStack{
                                 DatePicker(
-                                    "",
+                                    "Departure",
                                     selection: $departureDateValue,
                                     displayedComponents: [.date]
                                 )
                                 .datePickerStyle(.automatic)
                             }
                             
-                            Text("-")
-                            
-                            VStack{
-                                Text("Return")
+                            HStack{
                                 DatePicker(
-                                    "",
+                                    "Return",
                                     selection: $returnDateValue,
                                     displayedComponents: [.date]
                                 )
                                 .datePickerStyle(.automatic)
-                                .accentColor(.pink)
                             }
                         }
                     }
                 header: {
                     Text("When's your trip?")
                 }
-                    
-                                                                    
-                    Section{
-
-                        
-                        Picker("Choose Bag size", selection: $selectedBag) {
-                            
-                            ForEach(bags, id: \.self) {
-                                Text($0)
-                            }
-                        }
-                        .pickerStyle(.inline)
-                    }
-                header: {
-                    Text("Which backpack?")
-                    }
-                    
+                                               
                     Section{
                         Picker("Choose Vehicle", selection: $selectedVehicle) {
                             ForEach(vehicles, id: \.self) {
-                                Text($0)
+                                Image(systemName: $0)
                             }
                         }
                         .pickerStyle(.segmented)
+                        
+//                        HStack{
+//                            Spacer()
+//                            Text("\(selectedVehicle.capitalized)")
+//                            Spacer()
+//                        }
                     }
                 header: {
                     Text("How are you going?")
                     }
                     
-                }
-                
-                HStack{
-                    
-//                    Button(action: {
-//                        print("test")
-//                    }) {
-//                        Image(systemName: "moon.stars.fill")
-//                    }
-//                    
-//                    Button(action: {
-//                        print("test")
-//                    }) {
-//                        Image("bag")
-//                    }
-//                    
-//                    Button(action: {
-//                        print("test")
-//                    }) {
-//                        Image(systemName: "car")
-//                    }
-                }
-                
+                    Section{
+                        Picker("Choose Bag size", selection: $selectedBag) {
+                            
+                            ForEach(bags, id: \.self) { bag in
+                                BackpackRow(bag: bag)
+                            }
+                        }
+                        .pickerStyle(.inline)
+                        .labelsHidden()
 
-                
+                    }
+                header: {
+                    Text("Which backpack?")
+                    }
+                }
+             
             }
             .navigationBarTitle("Add New Trip", displayMode: .inline)
             .toolbar {
@@ -158,12 +135,10 @@ struct NewTrip: View {
                                                         returnDate: returnDateValue,
                                                         bagSize: selectedBag,
                                                         isArchived: false,
-                                                        coordinate: CLLocationCoordinate2D(latitude: 51.501, longitude: -0.141),
-                                                        image: Image("Placeholder"),
-                                                        items: [Item(isPacked: false, name: "item 1"), Item(isPacked: false, name: "item 2")]
+                                                        coordinate: CLLocationCoordinate2D(latitude: 37.800, longitude: -122.372),
+                                                        image: Image("SanFrancisco")
                             )
                         )
-                        
                         isPresenting = false
                         
                     }, label: {
@@ -173,15 +148,13 @@ struct NewTrip: View {
                 }
                 
                 ToolbarItem(placement: .navigationBarLeading) {
-                    
+
                     Button(action: {
-                                            
                         isPresenting = false
-                        
                     }, label: {
                         Text("Cancel")
                     })
-                    
+
                 }
          }
         }
@@ -190,6 +163,6 @@ struct NewTrip: View {
 
 //struct NewTrip_Previews: PreviewProvider {
 //    static var previews: some View {
-//        NewTrip(tripViewModel: TripViewModel, isPresenting: $isPresenting)
+//        NewTrip(tripViewModel: TripViewModel())
 //    }
 //}

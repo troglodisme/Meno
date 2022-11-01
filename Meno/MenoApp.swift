@@ -18,6 +18,7 @@ struct MenoApp: App {
         WindowGroup {
 //            SplashScreenView()
              ContentView(tripViewModel: TripViewModel())
+//            ContentView()
         }
     }
 }

@@ -29,7 +29,7 @@ struct ContentView: View {
 
                         ForEach(tripViewModel.upcomingTrips) { trip in
 
-                            NavigationLink(destination: TripDetailView(trip: trip)) {
+                            NavigationLink(destination: TripDetailView(tripViewModel: TripViewModel(), trip: trip)) {
 
                             TripRowView(trip: trip)
                             }
@@ -42,36 +42,24 @@ struct ContentView: View {
                     {
                         ForEach(tripViewModel.archivedTrips) { trip in
 
-                            NavigationLink(destination: TripDetailView(trip: trip)) {
+                            NavigationLink(destination: TripDetailView(tripViewModel: TripViewModel(), trip: trip)) {
 
                             TripRowView(trip: trip)
                             }
                         }
                         .onDelete(perform: tripViewModel.remove)
                     }
+                    
                 }
 
-                
-
-//                Section(header: Text("Archive"))
-//                {
-//                    ForEach(tripViewModel.trips) { trip in                   NavigationLink(destination: TripDetailView(trip: trip)) {
-//                        
-//                        TripRowView(trip: trip)
-//                        }
-//                    }
-//                }
-
-                
                 .listStyle(.plain)
-
                 
                 .sheet(isPresented: $isPresenting) {
                     NavigationView{
                         
-                        NewTrip(tripViewModel: tripViewModel, isPresenting: $isPresenting)  //mistake: creating a new instance of the model
+                        NewTrip(tripViewModel: tripViewModel, isPresenting: $isPresenting)
                     }
-                }                                                    
+                }
             }
             .navigationTitle("Trips")
             
@@ -86,11 +74,11 @@ struct ContentView: View {
                     }, label: {
                         Image(systemName: "plus.circle")
                     })
-                }   
+                }
                 
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
-                }                                
+                }
             }
         }
 //        .accentColor(Color(.label))
